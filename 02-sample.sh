@@ -8,7 +8,7 @@ echo "Hello World"
 
 # \n : new line
 # \t : tab space
-
+# -e is to enable the escape sequence character
 echo -e "Line1\nLine2"
 echo Line2
 echo Line3
