@@ -10,3 +10,4 @@ echo "Hello World"
 # \t : tab space
 # -e is to enable the escape sequence character
 echo -e "Line1\nLine2\nLine3"
+echo -e "Line1 \t Line2 \t Line3"
