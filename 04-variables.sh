@@ -14,5 +14,6 @@ c=30
 echo a
 
 # $a : telling system to print the value of a
+# $  : is a specia variable , when added as a prefix to any variable it considers to extract the value from the variable
 
 echo Value of a is $a
