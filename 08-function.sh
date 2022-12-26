@@ -8,7 +8,7 @@
 # }
 
 # Calling the sample function
-sample
+# sample
 
 stat(){
     echo "Number of open sessions : $(who | wc -l)"
