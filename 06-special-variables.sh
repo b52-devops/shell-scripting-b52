@@ -5,6 +5,8 @@
 
 ###   $0 to $n , $*  $& $#  $? 
 
+a=$1
+b=$2
 
 # $0       : Prints the script name 
 # $?       : Shows the exit code of the previos command  
@@ -13,3 +15,5 @@
 # $#       : Prints the number variables used in this script
 
 echo "Name of script is : $0"
+echo "Value of a is : $a "
+echo "Value of b is : $b "
