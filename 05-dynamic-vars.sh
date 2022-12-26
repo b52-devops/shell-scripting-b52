@@ -1,4 +1,6 @@
 #!/bin/bash
 
-DATE="24-12-2022"
+DATE=$date
 echo "Good morning. todays date is $DATE"
+
+# Always fetch the information dynamically for the variable which keep on changing, hardcoding creates complexity
