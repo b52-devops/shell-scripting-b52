@@ -23,4 +23,5 @@ echo "Value of b is : $c "
 echo "Here are the variables used in the script : $*"
 
 echo "Number of variables used int he script : $#"
-echo $@
+echo "The output for '$@' is : $@"
+echo "The output for '$*' is : $*"
