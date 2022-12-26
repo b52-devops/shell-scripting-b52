@@ -10,7 +10,7 @@ echo "sample function is completed"
 # Calling the sample function
 sample
 
-echo "d /n" 
+echo -e "/n" 
 
 # Calling the function 2nd time
 sample
