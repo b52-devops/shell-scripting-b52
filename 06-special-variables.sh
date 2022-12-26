@@ -12,4 +12,4 @@
 # $* or $@ : Prints all the variables used in this script
 # $#       : Prints the number variables used in this script
 
-echo "Name of script is $0"
+echo "Name of script is : $0"
