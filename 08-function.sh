@@ -10,6 +10,8 @@ echo "sample function is completed"
 # Calling the sample function
 sample
 
+/n 
+
 # Calling the function 2nd time
 sample
 
