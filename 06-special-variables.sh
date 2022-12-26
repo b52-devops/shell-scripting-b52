@@ -17,3 +17,4 @@ b=$2
 echo "Name of script is : $0"
 echo "Value of a is : $a "
 echo "Value of b is : $b "
+echo "Here are the variables used in the script : $*"
