@@ -7,6 +7,7 @@
 
 a=$1
 b=$2
+c=300
 
 # $0       : Prints the script name 
 # $?       : Shows the exit code of the previos command  
