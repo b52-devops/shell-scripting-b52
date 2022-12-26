@@ -9,3 +9,9 @@ echo "sample function is completed"
 
 # Calling the sample function
 sample
+
+# Calling the function 2nd time
+sample
+
+# Calling the sample function 3rd time
+sample
