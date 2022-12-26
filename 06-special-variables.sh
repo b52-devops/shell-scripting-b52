@@ -18,4 +18,6 @@ c=300
 echo "Name of script is : $0"
 echo "Value of a is : $a "
 echo "Value of b is : $b "
+echo "Value of b is : $c "
+
 echo "Here are the variables used in the script : $*"
