@@ -21,3 +21,6 @@ echo "Value of b is : $b "
 echo "Value of b is : $c "
 
 echo "Here are the variables used in the script : $*"
+
+echo $#
+echo $@
