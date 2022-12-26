@@ -10,8 +10,8 @@ echo "sample function is completed"
 # Calling the sample function
 sample
 
-# Calling the function 2nd time
-sample
-
-# Calling the sample function 3rd time
-sample
+stat(){
+    echo "Number of open sessions : $(who | wc -l)"
+    echo "Todays date is : "(date =%x)"
+    echo "Load average of the system in last 1 minute is : $(uptime | awk -F : '{print $5}' | awk -F , '{print $1}'"
+}
