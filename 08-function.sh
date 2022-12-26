@@ -14,12 +14,12 @@ stat(){
     echo "Number of open sessions : $(who | wc -l)"
     echo "Todays date is : $(date +%x)"
     echo "Load average of the system in last 1 minute is : $(uptime | awk -F : '{print $5}' | awk -F , '{print $1}')"
-    echo -e "\e[32m _____ I am done; function completed _____ \e[0m"
+    echo -e "\e[32m _____ stat function completed _____ \e[0m"
     echo "Calling sample function"
 
 sample
-}
+        echo -e "\e[32m _____ sample function completed _____ \e[0m"
 
-echo "calling stat function"
+}
 
 stat
