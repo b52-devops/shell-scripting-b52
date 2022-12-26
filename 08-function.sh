@@ -18,7 +18,7 @@ stat(){
     echo "Calling sample function"
 
 sample
-        echo -e "\e[32m _____ sample function completed _____ \e[0m"
+        echo -e "\e[31m _____ sample function completed _____ \e[0m"
 
 }
 
