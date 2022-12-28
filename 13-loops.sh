@@ -4,6 +4,6 @@
 #     echo "Value is $list"
 # done
 
-for courses in devops aws gcp azure = ansible terraform docker ; do
+for courses in devops aws gcp azure terraform ansible docker ; do
     echo "Course name is $courses"
 done
