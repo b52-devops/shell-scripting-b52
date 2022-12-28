@@ -1,6 +1,6 @@
 #!/bin/bash
 
-a="xyz"
+a="ABC"
 
 # if [ "$a" == "xyz" ]; then
 #     echo -e "\e[32m Both of them are equal \e[0m"
