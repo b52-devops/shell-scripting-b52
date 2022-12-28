@@ -15,5 +15,5 @@
 i=10
 while [ $i -gt 0 ] ; do
     echo "Iteration Number is $i"
-    i=$i-1
+    i=(($i-1))
 done
