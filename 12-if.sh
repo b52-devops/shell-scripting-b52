@@ -34,5 +34,5 @@ elif [ "$c" -eq "30" ] ; then
 
 else
     echo "Value of c is NOT 10 or 20 or 30"
-
+    exit 100
 fi
