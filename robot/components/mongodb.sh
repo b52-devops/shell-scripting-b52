@@ -36,3 +36,5 @@ cd mongodb-main
 mongo < catalogue.js     &>> $LOGFILE
 mongo < users.js         &>> $LOGFILE
 stat $?
+
+echo -e "\e[32m ________ $COMPONENT Configuration Completed _________ \e[0m"
