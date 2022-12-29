@@ -30,5 +30,7 @@ mv /home/$APPUSER/$COMPONENT-main /home/$APPUSER/$COMPONENT
 chown -R $APPUSER:$APPUSER /home/$APPUSER/$COMPONENT
 stat $?
 
-
-# npm install
+echo -n "Installing $COMPONENT dependencies : "
+cd $COMPONENT
+npm install &>> $LOGFILE
+stat $?
