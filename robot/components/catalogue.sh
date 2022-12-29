@@ -5,7 +5,7 @@ source components/common.sh    # source loads a file and this file has all the c
 
 echo -n "Configuring NodeJS repo : "
 curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash  &>> ${LOGFILE}
-# yum install nodejs -y   &>> ${LOGFILE}
+yum install nodejs -y   &>> ${LOGFILE}
 stat $?
 
 id $APPUSER &>> ${LOGFILE}
