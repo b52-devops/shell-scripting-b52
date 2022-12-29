@@ -3,7 +3,7 @@ set -e
 
 COMPONENT=mongodb
 
-source common.sh    # source loads a file and this file has all the common patterns
+source components/common.sh    # source loads a file and this file has all the common patterns
 
 echo -n "Downloading $COMPONENT : "
 curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/stans-robot-project/mongodb/main/mongo.repo
