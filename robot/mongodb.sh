@@ -24,6 +24,7 @@ stat $?
 
 echo -n "Installing $COMPONENT : "
 yum install -y mongodb-org  &>> $LOGFILE
+stat $?
 
 echo -n "Starting $COMPONENT : "
 systemctl enable mongod
@@ -36,7 +37,7 @@ stat $?
 
 echo -n "Extracting the $COMPONENT schema file"
 cd /tmp
-unzip mongodb.zip       &>> $LOGFILE
+unzip -o mongodb.zip       &>> $LOGFILE
 stat $?
 
 echo -n "Injecting the schema : "
