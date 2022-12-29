@@ -5,8 +5,10 @@ source components/common.sh    # source loads a file and this file has all the c
 
 echo -n "Configuring NodeJS repo : "
 curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash  &>> ${LOGFILE}
-yum install nodejs -y   &>> ${LOGFILE}
 stat $?
+
+echo -n "Installing tNodeJS : "
+yum install nodejs -y   &>> ${LOGFILE}
 
 id $APPUSER &>> ${LOGFILE}
 if [ $? -ne 0 ] ; then
