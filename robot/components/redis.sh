@@ -5,7 +5,7 @@ COMPONENT=redis
 source components/common.sh    # source loads a file and this file has all the common patterns
 
 echo -n "Downloading $COMPONENT repo : "
-curl -L https://raw.githubusercontent.com/stans-robot-project/redis/main/redis.repo -o /etc/yum.repos.d/redis.repo
+curl -L https://raw.githubusercontent.com/stans-robot-project/redis/main/redis.repo -o /etc/yum.repos.d/redis.repo  &>> ${LOGFILE}
 stat $?
 
 echo -n "Installing $COMPONENT : "
