@@ -22,7 +22,7 @@ stat $?
 echo -n "Extracting the $COMPONENT"
 cd /home/$APPUSER
 unzip -o /tmp/$COMPONENT.zip     &>> ${LOGFILE}
-
+stat $?
 
 # mv catalogue-main catalogue
 # cd /home/roboshop/catalogue
