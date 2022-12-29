@@ -30,7 +30,7 @@ cd /usr/share/nginx/html
 rm -rf *    &>> /tmp/frontend.log
 stat $?
 echo -n "Extracting $COMPONENT : "
-unzip /tmp/COMPONENT.zip    &>> /tmp/frontend.log
+unzip /tmp/$COMPONENT.zip    &>> /tmp/frontend.log
 stat $?
 
 echo -n "Copying $COMPONENT : "
