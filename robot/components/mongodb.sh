@@ -9,12 +9,12 @@ echo -n "Downloading $COMPONENT : "
 curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/stans-robot-project/mongodb/main/mongo.repo
 stat $?
 
-echo -n "Whitelisting the $COMPONENT"
-sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
-stat $?
-
 echo -n "Installing $COMPONENT : "
 yum install -y mongodb-org  &>> $LOGFILE
+stat $?
+
+echo -n "Whitelisting the $COMPONENT"
+sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
 stat $?
 
 echo -n "Starting $COMPONENT : "
