@@ -10,7 +10,7 @@ curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/stans
 stat $?
 
 echo -n "Updating the $COMPONENT"
-sed -i -e 's/127.0.0.1/0.0.0.0/' mongod.conf
+sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
 stat $?
 
 echo -n "Installing $COMPONENT : "
