@@ -8,10 +8,10 @@ mongodb:
 	bash components/mongodb.sh
 
 redis:
-	bash components/redis.sh 
+	bash components/redis.sh
 
 user:
-	bash components/user.sh 
+	bash components/user.sh
 
 cart:
 	bash components/cart.sh
@@ -21,3 +21,9 @@ mysql:
 
 shipping:
 	bash components/shipping.sh
+
+rabbitmq:
+	bash components/rabbitmq.sh
+
+payment:
+	bash components/payment.sh
