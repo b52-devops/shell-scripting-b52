@@ -1,5 +1,5 @@
-LOGFILE=/tmp/$COMPONENT.log
 APPUSER=roboshop
+LOGFILE="/tmp/$COMPONENT.log"
 
 ID=$(id -u)
 if [ $ID -ne 0 ] ; then 
@@ -8,11 +8,35 @@ if [ $ID -ne 0 ] ; then
 fi 
 
 stat() {
-    if [ $1 -eq 0 ]; then
-        echo -e "\e[32m Success \e[0m"
-    else
-        echo -e "\e[31m Failure \e[0m"
-    fi
+    if [ $1 -eq 0 ]; then 
+        echo -e "\e[32m Success \e[0m "
+    else 
+        echo -e "\e[31m failure \e[0m"
+    fi 
+}
+
+PYTHON() {
+   echo -n "Installing python3 and other dependencies : "
+   yum install python36 gcc python3-devel -y  &>> "${LOGFILE}" 
+   stat $? 
+
+    CREATE_USER             # Calling Create_User function to create user account
+
+    DOWNLOAD_AND_EXTRACT 
+
+    cd /home/$APPUSER/$COMPONENT/ 
+    pip3 install -r requirements.txt &>> "${LOGFILE}" 
+    stat $?  
+
+    USERID=$(id -u roboshop)
+    GROUPID=$(id -g roboshop)
+
+    echo -n "Updating the UID and GID in the $COMPONENT.ini file : "
+    sed -i -e "/^uid/ c uid=${USERID}"  -e "/^gid/ c gid=${GROUPID}" /home/$APPUSER/$COMPONENT/$COMPONENT.ini 
+    stat $?  
+
+    CONFIGURE_SVC           # Configuring and starting service
+
 }
 
 JAVA() {
@@ -38,9 +62,9 @@ NODEJS() {
     curl -sL https://rpm.nodesource.com/setup_16.x | bash  &>> "${LOGFILE}"
     stat $? 
 
-    echo -n "Installing NodeJs : "
+    echo -n "Installing nodeJs : "
     yum install nodejs -y &>> "${LOGFILE}"
-    stat $?
+    stat $?  
 
     CREATE_USER             # Calling Create_User function to create user account
 
@@ -86,7 +110,7 @@ NPM_INSTALL() {
 
 CONFIGURE_SVC() {
     echo -n "Configuring the $COMPONENT Service:"
-    sed -i -e 's/DBHOST/mysql.roboshop.internal/' -e 's/CARTENDPOINT/cart.roboshop.internal/' -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal/' -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/$APPUSER/$COMPONENT/systemd.service
+    sed -i -e 's/AMQPHOST/rabbitmq.roboshop.internal/' -e 's/USERHOST/user.roboshop.internal/' -e 's/CARTHOST/cart.roboshop.internal/' -e 's/DBHOST/mysql.roboshop.internal/' -e 's/CARTENDPOINT/cart.roboshop.internal/' -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal/' -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/$APPUSER/$COMPONENT/systemd.service
     mv /home/$APPUSER/$COMPONENT/systemd.service  /etc/systemd/system/$COMPONENT.service 
     stat $? 
 
