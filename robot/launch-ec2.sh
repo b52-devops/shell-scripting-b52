@@ -12,7 +12,7 @@ echo -e "AMI ID Used to lauch the instance is \e[32m $AMI_ID \e[0m"
 echo -e "Security Group ID Used to lauch the instance is \e[32m $SG_ID \e[0m"
 
 launch_ec2() {
-    
+
 echo "*****______ $COMPONENT launch is in progress ______*****"
 PRIVATE_IP=$(aws ec2 run-instances --image-id ${AMI_ID} --count 1 --instance-type t2.micro --security-group-ids ${SG_ID} --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${COMPONENT}}]" | jq '.Instances[].PrivateIpAddress' | sed -e 's/"//g')
 
@@ -29,7 +29,7 @@ echo -n " *****______ Internal DNS Record for $COMPONENT is completed ______****
 
 #If the selected option to launch is all, its going to create all the servers
 if [ "$1" == "all" ]; then
-    for component in frontend catalogue cart user shipping payment mysql rabbitmq redis mongodb, do
+    for component in frontend catalogue cart user shipping payment mysql rabbitmq redis mongodb; do
         COMPONENT=$component
         launch_ec2
     done
