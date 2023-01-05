@@ -2,7 +2,7 @@
 # This script created the server and the DNS Record
 
 if [ -z "$COMPONENT" ]; then
-    echo -e "\e[31m Component name is required \n Sample Usage: \n\n\t\t bash launch-ec2.sh componentName"
+    echo -e "\e[31m Component name is required \n Sample Usage: \n\n\t\t bash launch-ec2.sh componentName \e[0m"
     exit 1
 fi
 
