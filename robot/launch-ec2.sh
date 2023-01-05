@@ -7,7 +7,7 @@ SG_ID=$(aws ec2 describe-security-groups --filters Name=group-name,Values=b52-al
 
 echo "AMI ID Used to lauch the instance is $AMI_ID"
 echo "Security Group ID Used to lauch the instance is $SG_ID"
-echo "*****______ $COMPONENTlaunch is in progress ______*****"
+echo "*****______ $COMPONENT launch is in progress ______*****"
 
 
 
