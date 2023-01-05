@@ -1,6 +1,7 @@
 #!/bin/bash
 
 COMPONENT=$1
+HOSTED_ZONE_ID="Z0112540UNPLCQ33VGRQ"
 
 # AMI_ID="ami-00ff427d936335825"
 AMI_ID=$(aws ec2 describe-images --filters "Name=name,Values=DevOps-LabImage-CentOS7" --region us-east-1 | jq .Images[].ImageId | sed -e 's/"//g')
@@ -14,5 +15,10 @@ PRIVATE_IP=$(aws ec2 run-instances --image-id ${AMI_ID} --count 1 --instance-typ
 
 echo -e "Private IP of the $COMPONENT Server is  \e[32m $PRIVATE_IP \e[0m"
 
-echo "*****______ $COMPONENT launch completed ______*****"
+echo -n "Creating Internal DNS Record for $COMPONENT"
 
+sed -e "s/IPADDRESS/$PRIVATE_IP" -e "s/COMPONENT/$COMPONENT" route53.json > /tmp/r53/json
+aws route53 change-resource-record-sets --hosted-zone-id $HOSTED_ZONE_ID --change-batch file:///tmp/r53/json
+
+
+echo "*****______ Internal DNS Record for $COMPONENT is completed ______*****"
