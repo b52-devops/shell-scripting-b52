@@ -11,5 +11,5 @@ echo "*****______ $COMPONENTlaunch is in progress ______*****"
 
 
 
-aws ec2 run-instances --image-id ${AMI_ID} --count 1 --instance-type t2.micro --security-group-ids ${SG_ID} --tags Key=Name,Value=$COMPONENT
+# aws ec2 run-instances --image-id ${AMI_ID} --count 1 --instance-type t2.micro --security-group-ids ${SG_ID} --tags Key=Name,Value=$COMPONENT
 
