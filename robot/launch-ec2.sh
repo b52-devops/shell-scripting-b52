@@ -3,6 +3,7 @@
 
 if [ -z "$COMPONENT" ]; then
     echo -e "\e[31m Component name is required \n Sample Usage: \n\n\t\t bash launch-ec2.sh componentName"
+    exit 1
 fi
 
 COMPONENT=$1
