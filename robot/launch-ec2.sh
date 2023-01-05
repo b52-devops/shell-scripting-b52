@@ -17,8 +17,7 @@ echo -e "Private IP of the $COMPONENT Server is  \e[32m $PRIVATE_IP \e[0m"
 
 echo -n "Creating Internal DNS Record for $COMPONENT"
 
-sed -e "s/IPADDRESS/$PRIVATE_IP" -e "s/COMPONENT/$COMPONENT" route53.json > /tmp/r53/json
+sed -e "s/IPADDRESS/$PRIVATE_IP/" -e "s/COMPONENT/$COMPONENT/" route53.json > /tmp/r53/json
 aws route53 change-resource-record-sets --hosted-zone-id $HOSTED_ZONE_ID --change-batch file:///tmp/r53/json
-
 
 echo "*****______ Internal DNS Record for $COMPONENT is completed ______*****"
