@@ -1,6 +1,10 @@
 #!/bin/bash
 # This script created the server and the DNS Record
 
+if [ -z "$COMPONENT" ]; then
+    echo -e "\e[31m Component name is required \n Sample Usage: \n\n\t\t bash launch-ec2.sh componentName"
+fi
+
 COMPONENT=$1
 HOSTED_ZONE_ID="Z0112540UNPLCQ33VGRQ"
 
@@ -23,7 +27,7 @@ echo -n "Creating Internal DNS Record for $COMPONENT"
 sed -e "s/IPADDRESS/$PRIVATE_IP/" -e "s/COMPONENT/$COMPONENT/" route53.json > /tmp/r53.json
 aws route53 change-resource-record-sets --hosted-zone-id $HOSTED_ZONE_ID --change-batch file:///tmp/r53.json
 
-echo -n " *****______ Internal DNS Record for $COMPONENT is completed ______*****"
+echo -n " *****______ Internal DNS Record for $COMPONENT is completed ______***** \n\n"
 
 }
 
