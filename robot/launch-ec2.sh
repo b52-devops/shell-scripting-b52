@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# This script created the server and the DNS Record
 COMPONENT=$1
 HOSTED_ZONE_ID="Z0112540UNPLCQ33VGRQ"
 
@@ -20,4 +20,4 @@ echo -n "Creating Internal DNS Record for $COMPONENT"
 sed -e "s/IPADDRESS/$PRIVATE_IP/" -e "s/COMPONENT/$COMPONENT/" route53.json > /tmp/r53.json
 aws route53 change-resource-record-sets --hosted-zone-id $HOSTED_ZONE_ID --change-batch file:///tmp/r53.json
 
-echo "*****______ Internal DNS Record for $COMPONENT is completed ______*****"
+echo -n " *****______ Internal DNS Record for $COMPONENT is completed ______*****"
