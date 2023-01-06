@@ -5,7 +5,7 @@ COMPONENT=$1
 ENV=$2
 HOSTED_ZONE_ID="Z0112540UNPLCQ33VGRQ"
 
-if [ -z "$COMPONENT" ] || [ -z "$ENV" ]; then
+if [ -z "$COMPONENT" ] && [ -z "$ENV" ]; then
     echo -e "\e[31m Component name is required \n Sample Usage: \n\n\t\t bash launch-ec2.sh componentName envName  \e[0m"
     exit 1
 fi
@@ -29,7 +29,7 @@ launch_ec2() {
     sed -e "s/IPADDRESS/$PRIVATE_IP/" -e "s/COMPONENT/$COMPONENT-${ENV}/" route53.json > /tmp/r53.json
     aws route53 change-resource-record-sets --hosted-zone-id $HOSTED_ZONE_ID --change-batch file:///tmp/r53.json
 
-    echo -n -e  " *****______ Internal DNS Record for $COMPONENT-${ENV} is completed ______***** \n\n"
+    echo -n -e  " *****______ Internal DNS Record for $COMPONENT-${ENV} is completed ______***** \n\n\n"
 
 }
 
